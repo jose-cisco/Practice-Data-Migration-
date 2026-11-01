@@ -1,0 +1,19 @@
+# CI/CD stage catalogs for the practice migration (C360-style).
+# Used by notebooks/lib/config_lib.py when CONFIG_PATH points at this file:
+#   CFG = setup_config(config_path=CONFIG_PATH, run_date=run_date, environment="dev")
+#
+# Uploading this file is OPTIONAL: config_lib.py has identical built-in
+# defaults, so CONFIG_PATH='' works everywhere (including DBR 12.2, which has
+# no /Workspace filesystem mount).
+# schema = the OLD schema name — kept IDENTICAL on both sides; the catalog is
+# the only new component (2-part schema.table -> 3-part catalog.schema.table).
+environments:
+  dev:
+    catalog: practice_ml_dev
+    schema: practice
+  stg:
+    catalog: practice_ml_stg
+    schema: practice
+  prd:
+    catalog: practice_ml_prd
+    schema: practice

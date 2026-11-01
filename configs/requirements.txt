@@ -1,0 +1,14 @@
+# Practice-migration requirements — consumed by the old-school bootstrap:
+#   PROJECT_PATH = setup_wd_path(dbutils)
+#   REQ_PATH = prepare_requirements(PROJECT_PATH)
+#   %pip install -r "$REQ_PATH" -q
+#
+# prepare_requirements() reads this file when it is readable (serverless/newer
+# runtimes) and falls back to an identical built-in list otherwise (DBR 12.2
+# has no /Workspace FUSE), so uploading this file is OPTIONAL.
+#
+# NOTE: pinned versions are real-world best practice; this practice keeps
+# xgboost UNPINNED by choice. Unpinned means the two workspaces may resolve
+# different versions, in which case 60_verify_models parity can show DIFF
+# (informational — see the 'note' column there).
+xgboost
